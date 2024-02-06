@@ -19,7 +19,7 @@ Comment.init(
       required: true,
     },
     like: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
   },
