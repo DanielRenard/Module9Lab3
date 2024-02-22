@@ -14,41 +14,41 @@ async function init() {
 init();
 
 
-const Post = sequelize.define("Post", {
-  // age: Sequelize.STRING,
-  id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: "users", // 'Users' refers to table name
-      key: "id", // 'id' refers to column name in Users tables
-    },
-  },
-});
+// const Post = sequelize.define("Post", {
+//   // age: Sequelize.STRING,
+//   id: {
+//     type: Sequelize.INTEGER,
+//     references: {
+//       model: "users", // 'Users' refers to table name
+//       key: "id", // 'id' refers to column name in Users tables
+//     },
+//   },
+// });
 
-const Comment = sequelize.define("Comment", {
-  // age: Sequelize.STRING,
-  id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: "users", // 'Users' refers to table name
-      key: "id", // 'id' refers to column name in Users table
-    },
-  },
-});
+// const Comment = sequelize.define("Comment", {
+//   // age: Sequelize.STRING,
+//   id: {
+//     type: Sequelize.INTEGER,
+//     references: {
+//       model: "users", // 'Users' refers to table name
+//       key: "id", // 'id' refers to column name in Users table
+//     },
+//   },
+// });
 
 User.hasMany(Post); // Set one to many relationship
 User.hasMany(Comment); // Set one to many relationship
 
 Comment.belongsTo(Post);
 Post.belongsTo(User);
-// User.hasMany(Likes)
-// Comment.hasMany(Likes)
+// // User.hasMany(Likes)
+// // Comment.hasMany(Likes)
 
-// this is where foreign keys go
-// post belongs to a user
-// user has many posts // check
-// comment belongs to a user // check
-// comment belongs to a post
+// // this is where foreign keys go
+// // post belongs to a user
+// // user has many posts // check
+// // comment belongs to a user // check
+// // comment belongs to a post
 
 module.exports = {
   User, // export the model

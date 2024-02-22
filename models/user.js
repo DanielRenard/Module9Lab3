@@ -3,9 +3,9 @@ let dbConnect = require("../dbConnect");
 
 const sequelizeInstance = dbConnect.Sequelize;
 
-sequelize.define("User", {
-  firstName: Sequelize.STRING,
-});
+// sequelize.define("User", {
+//   firstName: Sequelize.STRING,
+// });
 
 
 class User extends Model {}
