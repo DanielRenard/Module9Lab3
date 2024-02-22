@@ -13,9 +13,6 @@ async function init() {
 
 init();
 
-const User = sequelize.define("User", {
-  firstName: Sequelize.STRING,
-});
 
 const Post = sequelize.define("Post", {
   // age: Sequelize.STRING,
@@ -23,7 +20,7 @@ const Post = sequelize.define("Post", {
     type: Sequelize.INTEGER,
     references: {
       model: "users", // 'Users' refers to table name
-      key: "id", // 'id' refers to column name in Users table
+      key: "id", // 'id' refers to column name in Users tables
     },
   },
 });
@@ -43,7 +40,9 @@ User.hasMany(Post); // Set one to many relationship
 User.hasMany(Comment); // Set one to many relationship
 
 Comment.belongsTo(Post);
-Post.belongsTo(User)
+Post.belongsTo(User);
+// User.hasMany(Likes)
+// Comment.hasMany(Likes)
 
 // this is where foreign keys go
 // post belongs to a user
