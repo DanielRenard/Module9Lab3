@@ -3,16 +3,17 @@
 const User = require("./user"); //require the model
 const Post = require("./post");
 const Comment = require("./comment");
+const Like = require('./like');
 
 async function init() {
   await User.sync(); // sync the model
   await Post.sync();
   await Comment.sync();
+  await Like.sync();
   // also sync any extra models here
 }
 
 init();
-
 
 // const Post = sequelize.define("Post", {
 //   // age: Sequelize.STRING,
@@ -41,8 +42,8 @@ User.hasMany(Comment); // Set one to many relationship
 
 Comment.belongsTo(Post);
 Post.belongsTo(User);
-// // User.hasMany(Likes)
-// // Comment.hasMany(Likes)
+User.hasMany(Like)
+Comment.hasMany(Like)
 
 // // this is where foreign keys go
 // // post belongs to a user

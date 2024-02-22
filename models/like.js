@@ -3,9 +3,9 @@ let dbConnect = require("../dbConnect");
 
 const sequelizeInstance = dbConnect.Sequelize;
 
-class Comment extends Model {}
+class Like extends Model {}
 // Sequelize will create this table if it doesn't exist on startup
-Comment.init(
+Like.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,18 +13,13 @@ Comment.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      required: true,
-    },
   },
   {
     sequelize: sequelizeInstance,
-    modelName: "comments", // use lowercase plural format
+    modelName: "likes", // use lowercase plural format
     timestamps: true,
     freezeTableName: true,
   }
 );
 
-module.exports = Comment;
+module.exports = Like;
